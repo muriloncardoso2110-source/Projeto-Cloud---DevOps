@@ -1,0 +1,44 @@
+Para gerar as chaves e conectar a AWS ao seu GitHub fiz assim:
+
+Criar as Chaves na AWS (IAM)
+Acesse o Console da AWS e pesquise por IAM (serviço de gestão de acessos).
+
+Dê um nome, por exemplo que o que eu coloquei no meu: github-actions-user.
+
+Na tela de permissões, escolha Anexar políticas diretamente e selecione AdministratorAccess.
+
+Após criar o usuário, clique no nome dele na lista.
+
+Vá na aba Credenciais de segurança .
+
+Desça até Chaves de acesso (Access keys) e clique em Criar chave de acesso.
+
+Escolha a opção Command Line Interface (CLI) e avance.
+
+2. Guardar as Chaves no GitHub 
+Agora você vai entregar essas chaves para o robô do GitHub de forma segura, para que ninguém veja seus códigos de acesso.
+
+Abra o seu repositório no GitHub.
+
+Clique na aba Settings no topo.
+
+No menu lateral esquerdo, clique em Secrets and variables e depois em Actions.
+
+Clique no botão verde New repository secret.
+
+Crie duas chaves exatamente com estes nomes:
+
+Nome: AWS_ACCESS_KEY_ID | Valor: (Cole a sua Access Key da AWS).
+
+Nome: AWS_SECRET_ACCESS_KEY | Valor: (Cole a sua Secret Access Key da AWS).
+
+3. Como o projeto ganha vida?
+Com essas chaves guardadas, o arquivo que mostrei anteriormente (deploy.yml) funcionará assim:
+
+Você faz uma alteração no código e envia para o GitHub (git push).
+
+O GitHub "lê" as chaves que você salvou nos Secrets.
+
+O GitHub usa essas chaves para logar na sua conta AWS em seu nome.
+
+O Terraform executa os comandos e cria ou atualiza o seu site e o banco de dado
