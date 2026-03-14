@@ -1,0 +1,29 @@
+Preparar o repositório local
+Pasta em um repositório Git e avisar quais arquivos devem ser enviados.
+
+Bash
+
+# Inicia o Git na pasta
+git init
+
+# Adiciona todos os arquivos que você criou (main.tf, index.html, etc)
+git add .
+
+# Cria o primeiro "pacote" com as alterações
+git commit -m "Primeiro deploy do projeto Cloud"
+2. Conectar com o GitHub
+Agora, você precisa dizer ao seu computador para onde ele deve enviar esses arquivos.
+
+Bash
+
+# Define o nome da branch principal como main
+git branch -M main
+
+# Conecta ao seu link do GitHub (Substitua pelo link do seu repositório)
+git remote add origin https://github.com/SEU-USUARIO/NOME-DO-REPOSITORIO.git
+3. Enviar os arquivos
+Este comando "empurra" o código para a nuvem.
+
+Bash
+
+git push -u origin main
